@@ -18,11 +18,27 @@ taskForm?.addEventListener('submit', (event) => {
 
   const taskDescription = formInput?.value;
   if (taskDescription) {
+    
+    //set up task and add to list
+    const task: Task = {
+      description: taskDescription,
+      isCompleted: false,
+    }
+    addTask(task);
+
+    //render tasks
+
+    //update local storage
   console.log(taskDescription);
 
     formInput.value = '';
   } else {
     alert('Please enter a task description.');
   }
-
 })
+
+function addTask(task: Task): void {
+  tasks.push(task);
+  console.log(tasks);
+  
+}
